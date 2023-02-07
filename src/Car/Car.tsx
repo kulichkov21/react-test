@@ -14,7 +14,7 @@ import React from "react";
 // )
 
 const car = (props: any) => (
-    <div style={{border: '1px solid black', marginBottom: '5px'}}>
+    <div style={{border: '1px solid black', marginBottom: '5px', boxShadow: '0 4px 5px 0 black'}}>
         <h3>Car name: {props.name}</h3>
         <p>Year: {props.year}</p>
         <input type="text" onChange={props.onChangeCarNameHandler} value={props.name}/>

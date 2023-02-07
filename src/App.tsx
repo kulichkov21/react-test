@@ -14,6 +14,18 @@ class App extends Component {
         const divStyle: React.CSSProperties = {'textAlign': 'center'};
         const cars: ICar[] = this.state.cars;
         const title: string = this.state.appTitle;
+        let carsHtml = null;
+        carsHtml = this.state.cars.map((car, i) => {
+            return (
+                car.year > 2008 ? <Car name={car.name} year={car.year} key={i}
+                                       onChangeTitle={() => this.changeTitle(car.name)}
+                                       onChangeCarNameHandler={(event: any) => this.changeCarName(event.target.value, i)}
+                                       onDelete={this.deleteHandler.bind(this, i)}
+                /> : null
+            )
+        });
+
+
         return (
             <div>
                 <div style={divStyle}>
@@ -22,23 +34,15 @@ class App extends Component {
                     <button onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
                 </div>
 
+
                 {
-                    this.state.cars.map((car, i) => {
-                        return (
-                            car.year > 2008 ? <Car name={car.name} year={car.year} key={i}
-                                                   onChangeTitle={() => this.changeTitle(car.name)}
-                                                   onChangeCarNameHandler={(event: any) => this.changeCarName(event.target.value, i)}
-                                                   onDelete={this.deleteHandler.bind(this, i)}
-                            /> : null
-                        )
-                    })
+                    <div style={{width: '400px', margin: 'auto', paddingTop: '20px'}}>
+                        {
+                            carsHtml
+                        }
+                    </div>
                 }
-                {/*<Car name={cars[0].name} year={cars[0].year}*/}
-                {/*     onChangeTitle={() => this.changeTitle(cars[0].name)}*/}
-                {/*/>*/}
-                {/*<Car name={cars[1].name} year={cars[1].year}*/}
-                {/*     onChangeTitle={this.changeTitle.bind(this,cars[1].name)}*/}
-                {/*><p>Current</p></Car>*/}
+
 
 
             </div>
@@ -46,6 +50,7 @@ class App extends Component {
 
         // return React.createElement('div', {className: 'App'},
         //     React.createElement('h1', null, 'Hello world'))
+
     }
 
     changeTitle(newTitle: string) {
