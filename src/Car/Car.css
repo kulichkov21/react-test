@@ -1,6 +1,14 @@
 .Car {
     margin-bottom: 5px;
     transition: border, box-shadow .3s;
+    border: 1px solid black;
+    boxShadow: 0 4px 5px 0 black;
+}
+
+.Car:hover {
+    border: 1px solid white;
+    boxShadow: 0 6px 7px 8px green;
+    cursor: pointer;
 }
 
 .Input {
