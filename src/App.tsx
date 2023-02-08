@@ -5,13 +5,17 @@ import {IAppState} from "./types/app-state.interface";
 import {ICar} from "./types/car.interface";
 import {IIndexProps} from "./index-props.interface";
 
-class App extends Component<IIndexProps, any> {
+class App extends Component<IIndexProps, IAppState> {
+
+    constructor(props: IIndexProps) {
+        super(props);
+        this.state = {
+            appTitle: 'Test app',
+            cars: [{name: 'Ford Focus', year: 2007}, {name: 'Audi A4 B9', year: 2019}]
+        };
+    }
 
 
-    state: IAppState = {
-        appTitle: 'Test app',
-        cars: [{name: 'Ford Focus', year: 2007}, {name: 'Audi A4 B9', year: 2019}]
-    };
 
     render() {
         const divStyle: React.CSSProperties = {'textAlign': 'center'};
