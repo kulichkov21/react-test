@@ -3,3 +3,23 @@
     margin-bottom: 5px;
     box-shadow: 0 4px 5px 0 black;
 }
+
+.Input {
+}
+
+.Input:active, .Input:focus {
+    outline: none;
+}
+
+.Input.bold {
+    border: 2px solid green;
+    font-weight: bold;
+}
+
+.Input.green {
+    border: 1px solid green;
+}
+
+.Input.red {
+    border: 1px solid red;
+}
