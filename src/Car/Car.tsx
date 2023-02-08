@@ -17,7 +17,25 @@ import Radium from 'radium';
 
 class Car extends Component<any, any> {
 
+    componentWillReceiveProps(nextProps: Readonly<any>, nextContext: any) {
+        console.log('componentWillReceiveProps', nextProps, nextContext);
+    }
+
+    shouldComponentUpdate(nextProps: Readonly<{name: string}>, nextState: Readonly<{name: string}>, nextContext: any): boolean {
+        console.log('shouldComponentUpdate', nextProps, nextContext);
+        return nextProps.name.trim() !== this.props.name.trim()
+    }
+
+    componentWillUpdate(nextProps: Readonly<any>, nextState: Readonly<any>, nextContext: any) {
+        console.log('componentWillUpdate', nextProps, nextContext);
+    }
+
+    componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<any>, snapshot?: any) {
+        console.log('componentDidUpdate', prevProps, prevState);
+    }
+
     render() {
+        console.log('render');
         const inputClasses: string[] = ['Input'];
 
         if (this.props.name === '') inputClasses.push('red');
@@ -39,7 +57,7 @@ class Car extends Component<any, any> {
                 <h3>Car name: {this.props.name}</h3>
                 <p>Year: {this.props.year}</p>
                 <input type="text"
-                       onChange={this.props.onChangeCarNameHandler}
+                       onChange={this.props.onChangeCarNameHandler.bind(this)}
                        value={this.props.name}
                        className={inputClasses.join(' ')}
                 />
@@ -52,6 +70,6 @@ class Car extends Component<any, any> {
 
 
 
-export default Radium(Car)
+export default Car
 
 
