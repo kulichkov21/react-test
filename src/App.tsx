@@ -15,9 +15,17 @@ class App extends Component<IIndexProps, IAppState> {
         };
     }
 
+    componentWillMount() {
+        console.log('componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
 
 
     render() {
+        console.log('render');
         const divStyle: React.CSSProperties = {'textAlign': 'center'};
         const cars: ICar[] = this.state.cars;
         const title: string = this.state.appTitle;
