@@ -34,6 +34,10 @@ class Car extends Component<any, any> {
         console.log('componentDidUpdate', prevProps, prevState);
     }
 
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+    }
+
     render() {
         console.log('render');
         const inputClasses: string[] = ['Input'];
