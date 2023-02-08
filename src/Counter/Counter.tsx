@@ -8,7 +8,11 @@ export default class Counter extends Component<any, any> {
     }
 
     addCounter = () => {
-        this.setState({counter: this.state.counter + 1})
+        this.setState((prevState: any) => {
+            return {
+                counter: prevState.counter + 1
+            }
+        })
     }
     render() {
        return (
