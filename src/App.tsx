@@ -1,5 +1,5 @@
 import React, {Component, DetailedHTMLProps, MouseEventHandler} from 'react';
-import './App.css';
+import './App.scss';
 import Car from "./Car/Car";
 import {IAppState} from "./types/app-state.interface";
 import {ICar} from "./types/car.interface";
@@ -31,7 +31,7 @@ class App extends Component {
                 <div style={divStyle}>
                     <h2>{title}</h2>
                     <input type="text" onChange={this.handleInput}/>
-                    <button onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
+                    <button className={'appButton'} onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
                 </div>
 
 

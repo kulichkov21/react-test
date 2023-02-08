@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.appButton {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  text-transform: uppercase;
+
+  &:hover {
+    background: #61dafb;
+  }
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
