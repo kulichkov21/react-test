@@ -1,7 +1,6 @@
 .Car {
-    border: 1px solid black;
     margin-bottom: 5px;
-    box-shadow: 0 4px 5px 0 black;
+    transition: border, box-shadow .3s;
 }
 
 .Input {
