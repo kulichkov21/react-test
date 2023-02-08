@@ -49,9 +49,8 @@ class Car extends Component<any, any> {
     }
 
     render() {
-        if(Math.random() > 0.7) throw new Error('fail');
 
-        console.log('render');
+
         const inputClasses: string[] = ['Input'];
 
         if (this.props.name === '') inputClasses.push('red');

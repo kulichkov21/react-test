@@ -5,6 +5,7 @@ import {IAppState} from "./types/app-state.interface";
 import {ICar} from "./types/car.interface";
 import {IIndexProps} from "./index-props.interface";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Counter from "./Counter/Counter";
 
 class App extends Component<IIndexProps, IAppState> {
 
@@ -50,6 +51,8 @@ class App extends Component<IIndexProps, IAppState> {
             <div>
                 <div style={divStyle}>
                     <h2>{this.props.title}</h2>
+                    <Counter/>
+                    <hr/>
                     <input type="text" onChange={this.handleInput}/>
                     <button className={'appButton'} onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
                 </div>
