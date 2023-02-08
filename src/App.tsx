@@ -4,6 +4,7 @@ import Car from "./Car/Car";
 import {IAppState} from "./types/app-state.interface";
 import {ICar} from "./types/car.interface";
 import {IIndexProps} from "./index-props.interface";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 class App extends Component<IIndexProps, IAppState> {
 
@@ -11,7 +12,7 @@ class App extends Component<IIndexProps, IAppState> {
         super(props);
         this.state = {
             appTitle: 'Test app',
-            cars: [{name: 'Ford Focus', year: 2007}, {name: 'Audi A4 B9', year: 2019}]
+            cars: [{name: 'Ford Focus', year: 2007}, {name: 'Audi A4 B9', year: 2019}, {name: 'Audi A6', year: 2022}]
         };
     }
 
@@ -32,11 +33,15 @@ class App extends Component<IIndexProps, IAppState> {
         let carsHtml = null;
         carsHtml = this.state.cars.map((car, i) => {
             return (
-                car.year > 2008 ? <Car name={car.name} year={car.year} key={i}
-                                       onChangeTitle={() => this.changeTitle(car.name)}
-                                       onChangeCarNameHandler={(event: any) => this.changeCarName(event.target.value, i)}
-                                       onDelete={this.deleteHandler.bind(this, i)}
-                /> : null
+                car.year > 2008 ?
+                    <ErrorBoundary key={i}>
+                        <Car name={car.name} year={car.year}
+                             onChangeTitle={() => this.changeTitle(car.name)}
+                             onChangeCarNameHandler={(event: any) => this.changeCarName(event.target.value, i)}
+                             onDelete={this.deleteHandler.bind(this, i)}
+                        />
+                    </ErrorBoundary>
+                 : null
             )
         });
 

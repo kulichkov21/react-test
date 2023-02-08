@@ -30,25 +30,27 @@ class Car extends Component<any, any> {
         console.log('componentWillUpdate', nextProps, nextContext);
     }
 
-    static getDerivedStateFromProps(nextProps: Readonly<any>, previousState: Readonly<any>) {
-        console.log('getDerivedStateFromProps', nextProps, previousState);
-
-        return previousState;
-    }
+    // static getDerivedStateFromProps(nextProps: Readonly<any>, previousState: Readonly<any>) {
+    //     console.log('getDerivedStateFromProps', nextProps, previousState);
+    //
+    //     return previousState;
+    // }
 
     componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<any>, snapshot?: any) {
         console.log('componentDidUpdate', prevProps, prevState);
     }
 
-    getSnapshotBeforeUpdate(prevProps: Readonly<any>, prevState: Readonly<any>): any {
-        console.log('getSnapshotBeforeUpdate', prevProps, prevState)
-    }
+    // getSnapshotBeforeUpdate(prevProps: Readonly<any>, prevState: Readonly<any>): any {
+    //     console.log('getSnapshotBeforeUpdate', prevProps, prevState)
+    // }
 
     componentWillUnmount() {
         console.log('componentWillUnmount')
     }
 
     render() {
+        if(Math.random() > 0.7) throw new Error('fail');
+
         console.log('render');
         const inputClasses: string[] = ['Input'];
 
