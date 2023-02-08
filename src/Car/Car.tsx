@@ -30,8 +30,18 @@ class Car extends Component<any, any> {
         console.log('componentWillUpdate', nextProps, nextContext);
     }
 
+    static getDerivedStateFromProps(nextProps: Readonly<any>, previousState: Readonly<any>) {
+        console.log('getDerivedStateFromProps', nextProps, previousState);
+
+        return previousState;
+    }
+
     componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<any>, snapshot?: any) {
         console.log('componentDidUpdate', prevProps, prevState);
+    }
+
+    getSnapshotBeforeUpdate(prevProps: Readonly<any>, prevState: Readonly<any>): any {
+        console.log('getSnapshotBeforeUpdate', prevProps, prevState)
     }
 
     componentWillUnmount() {
