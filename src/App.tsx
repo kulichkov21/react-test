@@ -3,8 +3,11 @@ import './App.scss';
 import Car from "./Car/Car";
 import {IAppState} from "./types/app-state.interface";
 import {ICar} from "./types/car.interface";
+import {IIndexProps} from "./index-props.interface";
 
-class App extends Component {
+class App extends Component<IIndexProps, any> {
+
+
     state: IAppState = {
         appTitle: 'Test app',
         cars: [{name: 'Ford Focus', year: 2007}, {name: 'Audi A4 B9', year: 2019}]
@@ -29,7 +32,7 @@ class App extends Component {
         return (
             <div>
                 <div style={divStyle}>
-                    <h2>{title}</h2>
+                    <h2>{this.props.title}</h2>
                     <input type="text" onChange={this.handleInput}/>
                     <button className={'appButton'} onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
                 </div>
