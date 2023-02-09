@@ -36,7 +36,7 @@ class App extends Component<IIndexProps, IAppState> {
             return (
                 car.year > 2008 ?
                     <ErrorBoundary key={i}>
-                        <Car name={car.name} year={car.year}
+                        <Car name={car.name} year={car.year} index={i}
                              onChangeTitle={() => this.changeTitle(car.name)}
                              onChangeCarNameHandler={(event: any) => this.changeCarName(event.target.value, i)}
                              onDelete={this.deleteHandler.bind(this, i)}

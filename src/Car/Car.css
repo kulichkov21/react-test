@@ -14,7 +14,7 @@
 .Input {
 }
 
-.Input:active, .Input:focus {
+.Input:active {
     outline: none;
 }
 
