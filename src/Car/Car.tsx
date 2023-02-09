@@ -2,6 +2,7 @@ import React, {Component, CSSProperties} from "react";
 import './Car.css';
 import Radium from 'radium';
 import withClass from "../hoc/withClass";
+import PropTypes from "prop-types";
 
 
 //  function Car() {
@@ -44,6 +45,13 @@ class Car extends Component<any, any> {
     }
 }
 
+// @ts-ignore
+Car.propTypes = {
+    name: PropTypes.string.isRequired,
+    year: PropTypes.number,
+    onChangeTitle: PropTypes.func,
+    onDelete: PropTypes.func
+}
 
 export default withClass(Car, 'Car')
 
