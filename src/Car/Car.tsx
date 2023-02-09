@@ -20,12 +20,17 @@ import PropTypes from "prop-types";
 
 class Car extends Component<any, any> {
 
+    inputRef: React.RefObject<any> | null = null;
+constructor(props: any) {
+    super(props);
 
-    inputRef: HTMLInputElement | null = null;
+    this.inputRef = React.createRef()
+}
+
 
     componentDidMount() {
         if (this.props.index === 1) {
-            this.inputRef?.focus();
+            this.inputRef?.current.focus();
         }
 
     }
@@ -43,7 +48,7 @@ class Car extends Component<any, any> {
                 <h3>Car name: {this.props.name}</h3>
                 <p>Year: {this.props.year}</p>
                 <input type="text"
-                       ref={(inputRef) => this.inputRef = inputRef}
+                       ref={ this.inputRef}
                        onChange={this.props.onChangeCarNameHandler.bind(this)}
                        value={this.props.name}
                        className={inputClasses.join(' ')}
