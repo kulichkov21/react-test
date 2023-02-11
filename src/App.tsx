@@ -7,6 +7,7 @@ import {IIndexProps} from "./index-props.interface";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Counter from "./Counter/Counter";
 
+export const ClickedContext = React.createContext(false);
 class App extends Component<IIndexProps, IAppState> {
 
     constructor(props: IIndexProps) {
@@ -53,7 +54,12 @@ class App extends Component<IIndexProps, IAppState> {
             <div>
                 <div style={divStyle}>
                     <h2>{this.props.title}</h2>
-                    <Counter clicked={this.state.clicked}/>
+
+                    <ClickedContext.Provider value={this.state.clicked}>
+                        <Counter/>
+                    </ClickedContext.Provider>
+
+
                     <hr/>
                     <input type="text" onChange={this.handleInput}/>
                     <button className={'appButton'} onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
