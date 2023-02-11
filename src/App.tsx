@@ -12,6 +12,7 @@ class App extends Component<IIndexProps, IAppState> {
     constructor(props: IIndexProps) {
         super(props);
         this.state = {
+            clicked: false,
             appTitle: 'Test app',
             cars: [{name: 'Ford Focus', year: 2007}, {name: 'Audi A4 B9', year: 2019}, {name: 'Audi A6', year: 2022}]
         };
@@ -36,6 +37,7 @@ class App extends Component<IIndexProps, IAppState> {
             return (
                 car.year > 2008 ?
                     <ErrorBoundary key={i}>
+                        <button onClick={() => this.setState({clicked: true})}>Change clicked</button>
                         <Car name={car.name} year={car.year} index={i}
                              onChangeTitle={() => this.changeTitle(car.name)}
                              onChangeCarNameHandler={(event: any) => this.changeCarName(event.target.value, i)}
@@ -51,7 +53,7 @@ class App extends Component<IIndexProps, IAppState> {
             <div>
                 <div style={divStyle}>
                     <h2>{this.props.title}</h2>
-                    <Counter/>
+                    <Counter clicked={this.state.clicked}/>
                     <hr/>
                     <input type="text" onChange={this.handleInput}/>
                     <button className={'appButton'} onClick={this.changeTitle.bind(this, 'New From App')}>Change title</button>
